@@ -30,7 +30,7 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "/usr/local/lib/python3.4/dist-packages/requests/packages/urllib3/connection.py", line 150, in _new_conn
     self, "Failed to establish a new connection: %s" % e)
-requests.packages.urllib3.exceptions.NewConnectionError: <requests.packages.urllib3.connection.HTTPConnection object at 0x7fb32cdd60b8>: Failed to establish a new connection: [Errno -2] Name or service not known
+requests.packages.urllib3.exceptions.NewConnectionError: <requests.packages.urllib3.connection.HTTPConnection object at 0x7f9b9db470b8>: Failed to establish a new connection: [Errno -2] Name or service not known
 
 During handling of the above exception, another exception occurred:
 
@@ -41,7 +41,7 @@ Traceback (most recent call last):
     _stacktrace=sys.exc_info()[2])
   File "/usr/local/lib/python3.4/dist-packages/requests/packages/urllib3/util/retry.py", line 376, in increment
     raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='gra108.aca.ntu.edu.tw', port=80): Max retries exceeded with url: /regchk/stu_query.asp (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7fb32cdd60b8>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='gra108.aca.ntu.edu.tw', port=80): Max retries exceeded with url: /regchk/stu_query.asp (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f9b9db470b8>: Failed to establish a new connection: [Errno -2] Name or service not known',))
 
 During handling of the above exception, another exception occurred:
 
@@ -60,4 +60,4 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "/usr/local/lib/python3.4/dist-packages/requests/adapters.py", line 487, in send
     raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='gra108.aca.ntu.edu.tw', port=80): Max retries exceeded with url: /regchk/stu_query.asp (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7fb32cdd60b8>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='gra108.aca.ntu.edu.tw', port=80): Max retries exceeded with url: /regchk/stu_query.asp (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f9b9db470b8>: Failed to establish a new connection: [Errno -2] Name or service not known',))
