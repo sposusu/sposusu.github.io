@@ -10,7 +10,10 @@ Under Construction...
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-		var color = Chart.helpers.color;
+    var color = Chart.helpers.color;
+    window.randomScalingFactor = function() {
+		return Math.round(Samples.utils.rand(-100, 100));
+	};
 		var barChartData = {
 			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 			datasets: [{
