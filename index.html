@@ -12,7 +12,7 @@ Under Construction...
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var color = Chart.helpers.color;
     window.randomScalingFactor = function() {
-		return Math.round(Samples.utils.rand(-100, 100));
+		return Math.floor(Math.random() * (100 +100) + -100);
 	};
 		var barChartData = {
 			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
