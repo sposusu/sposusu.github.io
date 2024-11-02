@@ -3,13 +3,12 @@ layout: post
 title:  "Top Musicals of 21s"
 author: Paul
 categories: [ musical, resouce ]
-image: assets/images/17.jpg
+image: assets/images/three_sister.jpg
 ---
 # 推推音樂劇
-:::info 
-多年推坑失敗經驗... 可以聽個歌XD 
-Spotify 都有 OST~~~
-:::
+
+多年推坑失敗經驗大集結
+
 
 ## Hamilton (2016)
 神作不解釋，歌和舞和舞台都超厲害，完全顛覆音樂劇的想像orz，背景是美國建國初期，很喜歡英國國王出來嘴美國是英國固有疆域的時候用Beatles的風格唱歌。
@@ -56,6 +55,9 @@ Hello(好笑的歌)：https://www.youtube.com/watch?v=OKkLV1zE8M0
 Bilibili(但這版不是雪寶演，是可愛的Evan Hansen男主)： https://www.bilibili.com/video/av12248117
 
 附上推坑簡介：http://jocelynleatyan.pixnet.net/blog/post/308984689-the-book-of-mormon%E6%91%A9%E9%96%80%E4%B9%8B%E6%9B%B8%E3%80%90%E7%B0%A1%E4%BB%8B%2B%E6%AD%8C%E6%9B%B2%E6%8E%A8%E8%96%A6%2B%E5%8A%87%E7%85%A7%2B
+
+## Six (2018)
+用演唱會包裝亨利八世的六個老婆，一個老婆一首歌，看現場感覺超爽
 
 -----
 
