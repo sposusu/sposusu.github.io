@@ -1,0 +1,60 @@
+{{ define "main" }}
+<div class="row">
+    <div class="col-lg-8">
+        {{ if .IsHome }}
+            <h2>All Posts</h2>
+        {{ else }}
+            <h2>{{ .Title }}</h2>
+        {{ end }}
+
+        {{ range .Paginator.Pages }}
+        <article class="mb-4 pb-4 border-bottom">
+            <h3><a href="{{ .Permalink }}" class="text-decoration-none">{{ .Title }}</a></h3>
+            <div class="post-meta mb-2">
+                <small>
+                    By {{ with .Params.author }}{{ . }}{{ else }}{{ .Site.Params.author }}{{ end }} • 
+                    {{ .Date.Format "January 2, 2006" }}
+                    {{ if .Params.categories }}
+                    • Categories: {{ delimit .Params.categories ", " }}
+                    {{ end }}
+                </small>
+            </div>
+            {{ if .Params.image }}
+            <img src="/{{ .Params.image }}" class="img-fluid mb-3" alt="{{ .Title }}">
+            {{ end }}
+            <div class="post-excerpt">
+                {{ .Summary }}
+                {{ if .Truncated }}
+                <p><a href="{{ .Permalink }}" class="btn btn-primary btn-sm">Read More</a></p>
+                {{ end }}
+            </div>
+        </article>
+        {{ end }}
+
+        <!-- Pagination -->
+        {{ if gt .Paginator.TotalPages 1 }}
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                {{ if .Paginator.HasPrev }}
+                    <li class="page-item"><a class="page-link" href="{{ .Paginator.Prev.URL }}">Previous</a></li>
+                {{ end }}
+                {{ range .Paginator.Pagers }}
+                    {{ if eq . $.Paginator }}
+                        <li class="page-item active"><span class="page-link">{{ .PageNumber }}</span></li>
+                    {{ else }}
+                        <li class="page-item"><a class="page-link" href="{{ .URL }}">{{ .PageNumber }}</a></li>
+                    {{ end }}
+                {{ end }}
+                {{ if .Paginator.HasNext }}
+                    <li class="page-item"><a class="page-link" href="{{ .Paginator.Next.URL }}">Next</a></li>
+                {{ end }}
+            </ul>
+        </nav>
+        {{ end }}
+    </div>
+
+    <div class="col-lg-4">
+        {{ partial "sidebar.html" . }}
+    </div>
+</div>
+{{ end }}

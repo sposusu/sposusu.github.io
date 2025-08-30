@@ -1,0 +1,13 @@
+{
+  "name": "hussar-hugo-site",
+  "version": "1.0.0",
+  "description": "Hugo-based blog site",
+  "scripts": {
+    "dev": "hugo server -D --bind 0.0.0.0",
+    "build": "hugo",
+    "serve": "hugo server",
+    "clean": "rm -rf public"
+  },
+  "keywords": ["hugo", "blog", "static-site"],
+  "author": "Hussar"
+}
