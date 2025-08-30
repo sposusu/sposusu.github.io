@@ -1,0 +1,38 @@
+/* Fix for long URLs wrapping - targeted approach */
+
+/* Only target URLs in article content, not navigation */
+article .prose a[href^="http"],
+.article-content a[href^="http"],
+.content a[href^="http"] {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Ensure article content doesn't overflow */
+article .prose,
+.article-content,
+.content {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+/* Style external links in content only */
+article .prose a[href^="http"]:not([href*="imgur.com"]),
+.article-content a[href^="http"]:not([href*="imgur.com"]),
+.content a[href^="http"]:not([href*="imgur.com"]) {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    display: inline;
+    line-height: 1.4;
+}
+
+/* Mobile responsiveness for content only */
+@media (max-width: 768px) {
+    article .prose,
+    .article-content,
+    .content {
+        overflow-x: hidden;
+    }
+}

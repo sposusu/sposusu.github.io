@@ -2,13 +2,27 @@ baseURL: 'https://sposusu.github.io'
 languageCode: 'en-us'
 title: 'Hussar place'
 description: 'Record the exploration'
+theme: 'congo'
+
+defaultContentLanguage: 'en'
+enableRobotsTXT: true
+summaryLength: 0
 
 # Site settings
 params:
-  logo: 'images/logo.png'
-  favicon: 'images/logo.png'
   description: 'Record the exploration'
   author: 'Hussar'
+  
+  # Congo theme settings
+  colorScheme: "congo"
+  defaultAppearance: "light"
+  autoSwitchAppearance: true
+  
+  enableSearch: true
+  enableCodeCopy: true
+  enableImageLazyLoading: true
+  enableImageWebp: true
+  enableQuicklink: true
   
   # Analytics
   googleAnalytics: 'G-433XCR65EL'
@@ -17,12 +31,67 @@ params:
   disqus:
     shortname: 'demowebsite'
   
-  # Social
-  mailchimp:
-    list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
+  # Header
+  header:
+    layout: "basic"
+    showTitle: true
   
-  # Features
-  lazyImages: false
+  # Footer
+  footer:
+    showCopyright: true
+    showThemeAttribution: true
+    showAppearanceSwitcher: true
+    showScrollToTop: true
+  
+  # Homepage
+  homepage:
+    layout: "page"
+    showRecent: true
+    recentLimit: 6
+  
+  # Article
+  article:
+    showDate: true
+    showDateUpdated: false
+    showAuthor: true
+    showBreadcrumbs: true
+    showDraftLabel: true
+    showHeadingAnchors: true
+    showPagination: true
+    showReadingTime: true
+    showTableOfContents: true
+    showTaxonomies: true
+    showWordCount: false
+    showComments: false
+  
+  # List
+  list:
+    showBreadcrumbs: true
+    showSummary: true
+    showTableOfContents: false
+    showTaxonomies: true
+    groupByYear: false
+    paginationWidth: 1
+  
+  # Taxonomy
+  taxonomy:
+    showTermCount: true
+  
+  # Main site author (Congo format)
+  author:
+    name: "Hussar"
+    image: "images/logo.png"
+    headline: "Record the exploration"
+    bio: "Welcome to Hussar place - a space for recording exploration and discoveries."
+    links:
+      - twitter: "https://twitter.com/"
+      - github: "https://github.com/sposusu"
+  
+  # Main sections for homepage
+  mainSections: ["posts"]
+  
+  # Custom CSS
+  customCSS: ["css/custom.css"]
 
 # Menu
 menu:
@@ -46,35 +115,14 @@ taxonomies:
   tag: "tags"
   author: "authors"
 
-# Authors
-params:
-  authors:
-    sal:
-      name: "Sal"
-      display_name: "Sal"
-      email: "wowthemesnet@gmail.com"
-      web: "https://www.wowthemes.net"
-      twitter: "https://twitter.com/wowthemesnet"
-      description: "Author of Mediumish, a Bootstrap Medium styled template."
-      gravatar: "e56154546cf4be74e393c62d1ae9f9d4"
-    john:
-      name: "John"
-      display_name: "John"
-      email: "wowthemesnet@gmail.com"
-      web: "https://www.wowthemes.net"
-      twitter: "https://twitter.com/wowthemesnet"
-      description: "This is the author box description."
-      avatar: "images/avatar.png"
-      gravatar: "b1cc14991db7a456fcd761680bbc8f81"
-    paul:
-      name: "Paul"
-      display_name: "Paul"
-      description: "Content contributor"
-
 # Pagination
 pagination:
   pagerSize: 6
   path: 'page'
+
+# Outputs
+outputs:
+  home: ["HTML", "RSS", "JSON"]
 
 # Markdown
 markup:
@@ -86,7 +134,7 @@ markup:
     lineNos: true
 
 # Static files
-staticDir: ["static", "assets"]
+staticDir: ["static"]
 
 # Build settings
 publishDir: "public"
