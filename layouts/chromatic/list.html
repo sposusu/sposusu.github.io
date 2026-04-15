@@ -1,0 +1,51 @@
+{{ define "main" }}
+  <article class="max-w-3xl mx-auto">
+    <header class="mb-8">
+      <h1 class="text-4xl font-bold text-neutral-900 dark:text-neutral mb-2">
+        {{ .Title | emojify }}
+      </h1>
+      {{ if .Params.description }}
+      <p class="text-neutral-500 dark:text-neutral-400">{{ .Params.description }}</p>
+      {{ end }}
+    </header>
+
+    <!-- Twitter-style feed -->
+    <div class="divide-y divide-neutral-200 dark:divide-neutral-700">
+      {{ range .Pages }}
+        <article class="py-6 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition">
+          <div class="flex justify-between items-start mb-3">
+            <time class="text-sm text-neutral-500 dark:text-neutral-400">
+              {{ .Date.Format "Jan 2, 2006" }}
+            </time>
+            {{ if .Params.tags }}
+            <div class="flex gap-2">
+              {{ range first 3 .Params.tags }}
+                <span class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded">{{ . }}</span>
+              {{ end }}
+            </div>
+            {{ end }}
+          </div>
+
+          {{ if .Title }}
+          <h2 class="text-xl font-semibold mb-3">
+            <a href="{{ .Permalink }}" class="text-neutral-900 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400">
+              {{ .Title | emojify }}
+            </a>
+          </h2>
+          {{ end }}
+
+          <div class="prose prose-sm dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300">
+            {{ .Content | emojify }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+
+    <!-- Pagination -->
+    {{ if gt .Paginator.TotalPages 1 }}
+    <div class="mt-8">
+      {{ partial "pagination.html" . }}
+    </div>
+    {{ end }}
+  </article>
+{{ end }}

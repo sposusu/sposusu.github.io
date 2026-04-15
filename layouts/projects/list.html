@@ -1,0 +1,76 @@
+{{ define "main" }}
+  <article class="max-w-5xl mx-auto">
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl font-bold text-neutral-900 dark:text-neutral mb-4">
+        {{ .Title | emojify }}
+      </h1>
+      {{ if .Params.description }}
+      <p class="text-lg text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto">
+        {{ .Params.description }}
+      </p>
+      {{ end }}
+    </header>
+
+    <!-- Project Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {{ range .Pages }}
+        <a href="{{ .Permalink }}" class="group block">
+          <article class="bg-neutral-50 dark:bg-neutral-800 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full">
+            <!-- Project Image -->
+            {{ if .Params.image }}
+            <div class="aspect-video overflow-hidden bg-neutral-200 dark:bg-neutral-700">
+              <img
+                src="{{ .Params.image }}"
+                alt="{{ .Title }}"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            {{ else }}
+            <div class="aspect-video bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
+              <span class="text-6xl text-white/80">{{ substr .Title 0 1 }}</span>
+            </div>
+            {{ end }}
+
+            <!-- Project Info -->
+            <div class="p-6">
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                {{ .Title | emojify }}
+              </h2>
+
+              {{ if .Params.description }}
+              <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4 line-clamp-2">
+                {{ .Params.description }}
+              </p>
+              {{ end }}
+
+              <!-- Tags -->
+              {{ if .Params.tags }}
+              <div class="flex flex-wrap gap-2">
+                {{ range first 3 .Params.tags }}
+                  <span class="text-xs bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-300 px-2 py-1 rounded">
+                    {{ . }}
+                  </span>
+                {{ end }}
+              </div>
+              {{ end }}
+            </div>
+          </article>
+        </a>
+      {{ end }}
+    </div>
+
+    <!-- Empty State -->
+    {{ if not .Pages }}
+    <div class="text-center py-16">
+      <p class="text-neutral-500 dark:text-neutral-400">No projects yet. Stay tuned!</p>
+    </div>
+    {{ end }}
+
+    <!-- Pagination -->
+    {{ if gt .Paginator.TotalPages 1 }}
+    <div class="mt-12">
+      {{ partial "pagination.html" . }}
+    </div>
+    {{ end }}
+  </article>
+{{ end }}

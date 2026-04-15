@@ -1,0 +1,40 @@
+{{ define "main" }}
+  <article class="max-w-2xl mx-auto">
+    <!-- Simple header -->
+    <header class="mb-6 pb-4 border-b border-neutral-200 dark:border-neutral-700">
+      <div class="flex items-center justify-between mb-3">
+        <time class="text-sm text-neutral-500 dark:text-neutral-400">
+          {{ .Date.Format "Jan 2, 2006 · 3:04 PM" }}
+        </time>
+        <a href="/chromatic/" class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400">
+          ← Back to Chromatic
+        </a>
+      </div>
+
+      {{ if .Title }}
+      <h1 class="text-2xl font-bold text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+      </h1>
+      {{ end }}
+    </header>
+
+    <!-- Content - simple and clean -->
+    <section class="prose prose-lg dark:prose-invert max-w-none">
+      {{ .Content | emojify }}
+    </section>
+
+    <!-- Tags -->
+    {{ if .Params.tags }}
+    <footer class="mt-8 pt-4 border-t border-neutral-200 dark:border-neutral-700">
+      <div class="flex flex-wrap gap-2">
+        {{ range .Params.tags }}
+          <a href="{{ "/tags/" | relURL }}{{ . | urlize }}"
+             class="text-sm bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 px-3 py-1 rounded transition">
+            #{{ . }}
+          </a>
+        {{ end }}
+      </div>
+    </footer>
+    {{ end }}
+  </article>
+{{ end }}
