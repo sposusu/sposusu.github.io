@@ -4,6 +4,7 @@ title: 'Hussar place'
 description: 'Record the exploration'
 theme: 'congo'
 
+timeZone: 'Asia/Taipei'
 defaultContentLanguage: 'en'
 enableRobotsTXT: true
 summaryLength: 0
