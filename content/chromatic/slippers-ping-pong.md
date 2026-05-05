@@ -1,6 +1,6 @@
 ---
 title: "用拖鞋打桌球"
-date: 2026-04-20
+date: 2026-05-05
 draft: false
 tags: ["ai", "work", "random"]
 ---
