@@ -68,3 +68,27 @@ npm run clean
 - Fast build times and live reload during development
 - Markdown with HTML support enabled via `unsafe: true`
 - Syntax highlighting with GitHub style
+
+## Chromatic 發文
+
+Chromatic 是一個短文/隨筆分類，風格輕鬆隨意，像 tweet 一樣。
+
+### 發文流程
+1. 先用 `TZ='Asia/Taipei' date '+%Y-%m-%d'` 確認今天日期
+2. 在 `content/chromatic/` 新增 `.md` 檔，檔名用英文 kebab-case
+3. 直接 commit + push 到 master，GitHub Actions 會自動 build + deploy
+
+### Frontmatter 格式
+```yaml
+---
+title: "標題"
+date: 2026-05-08  # 台灣時間當天日期，每次都要用指令確認
+draft: false
+tags: ["relevant", "tags"]
+---
+```
+
+### 注意事項
+- 站台 `config.yaml` 已設定 `timeZone: 'Asia/Taipei'`，日期按台灣時間解讀
+- 使用者說要發 chromatic 時，直接建檔、commit、push，一條龍完成
+- 內容由使用者口述，保持原本語氣，不要潤飾太多
